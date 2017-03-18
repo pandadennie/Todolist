@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>To do list</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Co</th>
+      <th>Jak</th>
+      <th>Obrazek</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ideas.each do |idea| %>
+      <tr>
+        <td><%= idea.name %></td>
+        <td><%= idea.description %></td>
+        <td><%= idea.picture %></td>
+        <td><%= link_to 'Ukaz', idea %></td>
+        <td><%= link_to 'Edituj', edit_idea_path(idea) %></td>
+        <td><%= link_to 'Smaz', idea, method: :delete, data: { confirm: 'Jsi si jista?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nový úkol', new_idea_path %>
